@@ -1,0 +1,136 @@
+[gd_scene load_steps=23 format=3 uid="uid://e22s018dtlsl"]
+
+[ext_resource type="Shader" uid="uid://bfpgrfhy2nwlj" path="res://scenes/fire_shader.tres" id="1_jo0vk"]
+[ext_resource type="Texture2D" uid="uid://c1tjjn6i6wa75" path="res://assets/gap/Voronoi01.png" id="2_vqstn"]
+[ext_resource type="Texture2D" uid="uid://bhr86l73tpxfd" path="res://assets/gap/Flame01.png" id="3_sf8rg"]
+[ext_resource type="Texture2D" uid="uid://dmbmndl14o7v5" path="res://assets/gap/Flame02.png" id="4_nwl78"]
+[ext_resource type="Shader" uid="uid://e3ujct5dhb5a" path="res://scenes/fire_particles_shader.tres" id="5_v8geq"]
+[ext_resource type="Texture2D" uid="uid://cjhj7i7a541b2" path="res://assets/gap/Flare00.PNG" id="6_rx1bk"]
+[ext_resource type="AudioStream" uid="uid://8w2agg0xih6c" path="res://assets/freesound/650574__soundofsong__fire-crackling-loop.wav" id="7_begoh"]
+[ext_resource type="Script" path="res://scenes/audio_stream_player_3d.gd" id="8_0rhw1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_32ade"]
+render_priority = 0
+shader = ExtResource("1_jo0vk")
+shader_parameter/DissolveTiling = Vector2(0.25, 0.2)
+shader_parameter/DissolveSpeed = Vector2(0, 0.2)
+shader_parameter/DissolveAmount = 0.5
+shader_parameter/MainTex = ExtResource("3_sf8rg")
+shader_parameter/DissolveTexture = ExtResource("2_vqstn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_qauf3"]
+gravity = Vector3(0, 0, 0)
+color = Color(4, 1.25, 0.6, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_5rwom"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_2mw1k"]
+render_priority = 0
+shader = ExtResource("1_jo0vk")
+shader_parameter/DissolveTiling = Vector2(1, 1)
+shader_parameter/DissolveSpeed = Vector2(0, 0)
+shader_parameter/DissolveAmount = 0.0
+shader_parameter/MainTex = ExtResource("4_nwl78")
+shader_parameter/DissolveTexture = ExtResource("2_vqstn")
+
+[sub_resource type="Curve" id="Curve_u1d1q"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.25, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_enabled = true
+
+[sub_resource type="CurveTexture" id="CurveTexture_e3702"]
+curve = SubResource("Curve_u1d1q")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_pd1kj"]
+emission_shape = 1
+emission_sphere_radius = 0.2
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+scale_min = 0.75
+scale_max = 1.5
+scale_curve = SubResource("CurveTexture_e3702")
+color = Color(4.01176, 1, 0.623529, 1)
+
+[sub_resource type="QuadMesh" id="QuadMesh_0hjnc"]
+
+[sub_resource type="Gradient" id="Gradient_ecjn8"]
+offsets = PackedFloat32Array(0, 0.191837, 0.563265, 0.995918)
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.857143, 1, 1, 1, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_w51s3"]
+gradient = SubResource("Gradient_ecjn8")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_njlfw"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+angle_min = -360.0
+angle_max = 360.0
+gravity = Vector3(0, 5, 0)
+damping_min = 0.5
+damping_max = 1.0
+scale_min = 1.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_e3702")
+color = Color(0, 0, 0, 1)
+color_ramp = SubResource("GradientTexture1D_w51s3")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_4f6lr"]
+render_priority = 0
+shader = ExtResource("5_v8geq")
+shader_parameter/MainTex = ExtResource("6_rx1bk")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_65bje"]
+emission_shape = 1
+emission_sphere_radius = 0.3
+gravity = Vector3(0, 4, 0)
+scale_min = 0.01
+scale_max = 0.12
+color = Color(4.01176, 1, 0.623529, 1)
+turbulence_enabled = true
+turbulence_noise_scale = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_0wgyl"]
+
+[node name="Fire" type="Node3D"]
+
+[node name="StaticFlame" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_32ade")
+amount = 1
+lifetime = 5.0
+process_material = SubResource("ParticleProcessMaterial_qauf3")
+draw_pass_1 = SubResource("QuadMesh_5rwom")
+
+[node name="Flames" type="GPUParticles3D" parent="."]
+material_override = SubResource("ShaderMaterial_2mw1k")
+amount = 20
+lifetime = 1.2
+speed_scale = 0.66
+process_material = SubResource("ParticleProcessMaterial_pd1kj")
+draw_pass_1 = SubResource("QuadMesh_0hjnc")
+
+[node name="Smoke" type="GPUParticles3D" parent="."]
+sorting_offset = -1.0
+material_override = SubResource("ShaderMaterial_2mw1k")
+amount = 20
+lifetime = 2.5
+speed_scale = 0.66
+process_material = SubResource("ParticleProcessMaterial_njlfw")
+draw_pass_1 = SubResource("QuadMesh_0hjnc")
+
+[node name="ParticlesFloating" type="GPUParticles3D" parent="."]
+sorting_offset = 1.0
+material_override = SubResource("ShaderMaterial_4f6lr")
+amount = 25
+lifetime = 2.0
+process_material = SubResource("ParticleProcessMaterial_65bje")
+draw_pass_1 = SubResource("QuadMesh_0wgyl")
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource("7_begoh")
+volume_db = -10.0
+autoplay = true
+max_distance = 5.0
+script = ExtResource("8_0rhw1")

@@ -1,0 +1,37 @@
+[gd_scene load_steps=3 format=3 uid="uid://kc6rco52l00x"]
+
+[ext_resource type="Script" path="res://scenes/main.gd" id="1_5aw3f"]
+[ext_resource type="Script" path="res://scenes/steam.gd" id="2_7vr7s"]
+
+[node name="Main" type="Node3D"]
+script = ExtResource("1_5aw3f")
+
+[node name="Steam" type="Node" parent="."]
+script = ExtResource("2_7vr7s")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Host" type="Button" parent="CanvasLayer"]
+offset_right = 76.0
+offset_bottom = 31.0
+text = "HOST"
+
+[node name="Refresh" type="Button" parent="CanvasLayer"]
+offset_top = 32.0
+offset_right = 76.0
+offset_bottom = 63.0
+text = "REFRESH"
+
+[node name="LobbyContainer" type="ScrollContainer" parent="CanvasLayer"]
+offset_left = 80.0
+offset_right = 680.0
+offset_bottom = 300.0
+
+[node name="Lobbies" type="VBoxContainer" parent="CanvasLayer/LobbyContainer"]
+layout_mode = 2
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="CanvasLayer/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="CanvasLayer/Refresh" to="." method="_on_refresh_pressed"]
