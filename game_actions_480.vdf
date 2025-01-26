@@ -4,29 +4,37 @@
    {
        "GameControls"
        {
-           "title"                 "#Set_Title"
+           "title"                  "Set_GameControls"
            "Button"
            {
-				"jump"			"#Action_Jump"
-				"sprint"		"#Action_Sprint"
-				"use"			"#Action_Use"
-				"crouch"		"#Action_Crouch"
-				"left_punch"		"#Action_LeftPunch"
-				"right_punch"		"#Action_RightPunch"
-				"start"			"#Action_Start"
-				"perspective"		"#Action_Perspective"
-				"zoom_in"       	"#Action_ZoomIn"
-				"zoom_out"      	"#Action_ZoomOut" 
+				"jump"              "#Action_Jump"
+				"sprint"            "#Action_Sprint"
+				"use"               "#Action_Use"
+				"crouch"            "#Action_Crouch"
+				"left_punch"        "#Action_LeftPunch"
+				"right_punch"       "#Action_RightPunch"
+				"start"             "#Action_Start"
+				"perspective"       "#Action_Perspective"
+				"zoom_in"           "#Action_ZoomIn"
+				"zoom_out"          "#Action_ZoomOut" 
            },
            "StickPadGyro"
            {
-               "move"           "#Action_Move"
-               "camera"         "#Action_Camera" 
+               "move"
+                {
+                    "title"         "#Action_Move"
+                    "input_mode"    "joystick_move"
+                }
+               "camera"
+                {
+                    "title"         "#Action_Camera"
+                    "input_mode"    "joystick_move"
+                }
            },
            "Trigger"
            {
-               "left_kick"                "#Action_LeftKick",
-               "right_kick"               "#Action_RightKick"
+               "left_kick"          "#Action_LeftKick",
+               "right_kick"         "#Action_RightKick"
            }
        }
    },
@@ -34,21 +42,20 @@
    {
        "english"
        {
-           "Set_Title"            "Xbox Controller"
-           "jump"                 "Jump"
-           "sprint"               "Sprint"
-           "use"                  "Use"
-           "crouch"               "Crouch"
-           "left_punch"           "Left Punch"
-           "light_punch"          "Right Punch"
-           "perspective"          "Perspective"
-           "start"                "Start"
-           "zoom_in"              "Zoom In "
-           "zoom_out"             "Zoom Out"
-           "action_move"          "Move"
-           "action_camera"        "Camera"
-           "left_kick"            "Left Kick"
-           "right_kick"           "Right Kick"
+           "jump"                   "Jump"
+           "sprint"                 "Sprint"
+           "use"                    "Use"
+           "crouch"                 "Crouch"
+           "left_punch"             "Left Punch"
+           "light_punch"            "Right Punch"
+           "perspective"            "Perspective"
+           "start"                  "Start"
+           "zoom_in"                "Zoom In "
+           "zoom_out"               "Zoom Out"
+           "action_move"            "Move"
+           "action_camera"          "Camera"
+           "left_kick"              "Left Kick"
+           "right_kick"             "Right Kick"
        }
    }
 }
