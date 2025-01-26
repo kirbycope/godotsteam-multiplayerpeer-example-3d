@@ -15,18 +15,18 @@
 				"right_punch"		"#Action_RightPunch"
 				"start"			"#Action_Start"
 				"perspective"		"#Action_Perspective"
-				"zoom_in"       	"#Action_ZoomIn"
-				"zoom_out"      	"#Action_ZoomOut" 
+				"zoom_in"       	"#Action_Zoom_in"
+				"zoom_out"      	"#Action_Zoom_out" 
            },
            "StickPadGyro"
            {
-               "move"           "#Action_Move"
-               "camera"         "#Action_Camera" 
+               "move"           "#Action_move"
+               "camera"         "#Action_camera" 
            },
            "Trigger"
            {
-               "left_kick"                "#Action_LeftKick",
-               "right_kick"               "#Action_RightKick"
+               "left_kick"                "#Action_left_kick",
+               "right_kick"               "#Action_right_kick"
            }
        }
    },
