@@ -13,9 +13,14 @@ func _ready() -> void:
 	# Initialize the Steamworks SDK
 	Steam.steamInitEx()
 
+	# https://furd.dev/blog/steam-input/
+	Steam.inputInit()
+	Steam.enableDeviceCallbacks()
+	SteamMultiplayerInput.init()
+
 
 ## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 
 	# Retrieve callbacks from Steamworks
 	Steam.run_callbacks()

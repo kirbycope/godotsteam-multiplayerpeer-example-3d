@@ -246,6 +246,15 @@ func _input(event) -> void:
 ## Use _physics_process(delta) if the input needs to be checked continuously in sync with the physics engine, like for smooth movement or jump control.
 func _physics_process(delta) -> void:
 
+	# DEBUGGING
+	var pressed_start = SteamMultiplayerInput.any_just_pressed("start")
+	#var movement_input = SteamControllerInput.get_move_input(0)
+	#if movement_input: print(movement_input)
+	#var jump_input_actuation = SteamControllerInput.is_action_just_pressed(0, "Jump")
+	#if jump_input_actuation: print(jump_input_actuation)
+	#var jump_input = SteamControllerInput.is_action_pressed(0, "Jump")
+	#if jump_input: print(jump_input)
+
 	# Uncomment the next line if using GodotSteam
 	if !is_multiplayer_authority(): return
 

@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 Controls="*res://addons/3d_player_controller/controls.gd"
 States="*res://addons/3d_player_controller/states/states.gd"
+SteamMultiplayerInput="*res://addons/3d_player_controller/steam_multiplayer_input.gd"
 
 [display]
 

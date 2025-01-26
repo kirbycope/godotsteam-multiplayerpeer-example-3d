@@ -23,9 +23,11 @@ https://github.com/GodotSteam/MultiPlayerPeer/releases/latest
             - Move sure the project directory is not in "Desktop", "Documents", or "Downloads"
                 - `cd ~/GitHub` would be a good place
 - Windows - win64-gXX-sXXX-gsXXX-mp.zip
-    - Extract contents to `C:\Godot\godotsteam` as seen in [.vscode/settings.json](.vscode/settings.json)
-    - The exe and dll need to be together for the Steam fatures to work in the editor
-    - The templates will be used in exporting the builds
+    1. Extract contents to `C:\Godot\godotsteam` as seen in [.vscode/settings.json](.vscode/settings.json)
+        - The exe and dll need to be together for the Steam fatures to work in the editor
+        - The templates will be used in exporting the builds
+    1. To enable Controller support, copy [game_actions_480.vdf](game_actions_480.vdf) to `C:\Program Files (x86)\Steam\controller_config`
+        - Create the directory if it doesn't already exist
 
 ## Exporting to macOS Using Godot
 1. [One-time Setup] Select "Project > Project Settings..."
