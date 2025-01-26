@@ -247,11 +247,11 @@ func _input(event) -> void:
 func _physics_process(delta) -> void:
 
 	# DEBUGGING
-	var controller = SteamMultiplayerInput.get_controllers()[1]
 	var pressed_start = SteamMultiplayerInput.any_just_pressed("start")
 	if pressed_start != { "result": false, "controller": null }: print(pressed_start)
-	var start_input_actuation = SteamMultiplayerInput.is_action_just_pressed(controller, "start")
-	if start_input_actuation: print(start_input_actuation)
+	#var controller = SteamMultiplayerInput.get_controllers()[1]
+	#var start_input_actuation = SteamMultiplayerInput.is_action_just_pressed(controller, "start")
+	#if start_input_actuation: print(start_input_actuation)
 
 	# Uncomment the next line if using GodotSteam
 	if !is_multiplayer_authority(): return
