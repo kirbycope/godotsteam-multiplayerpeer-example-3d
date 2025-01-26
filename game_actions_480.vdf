@@ -1,81 +1,54 @@
-```
 "In Game Actions"
 {
-    "actions"
-    {
-        "GameControls"
-        {
-            "title"          "#Set_GameControls"
-            "Button"
-            {
-                "Jump"       "#Action_Jump"
-                "Dash"       "#Action_Dash"
-                "Interact"   "#Action_Interact"
-                "Up"         "#Action_Up"
-                "Down"       "#Action_Down"
-                "Left"       "#Action_Left"
-                "Right"      "#Action_Right"
-                "Pause"      "#Action_Pause"
-                "Start"      "#Action_Start"
-                "Back"       "#Action_Back"
-            }
-            "StickPadGyro"
-            {
-                "Move"
-                {
-                    "title"         "#Action_Move"
-                    "input_mode"    "joystick_move"
-                }
-            }
-        }
-        "MenuControls"
-        {
-            "title"               "#Set_MenuControls"
-            "Button"
-            {
-                "Select"          "#Menu_Select"
-                "Deselect"        "#Menu_Deselect"
-                "NextCostume"     "#Menu_NextCostume"
-                "PrevCostume"     "#Menu_PrevCostume"
-                "Up"              "#Action_Up"
-                "Down"            "#Action_Down"
-                "Left"            "#Action_Left"
-                "Right"           "#Action_Right"
-                "Start"           "#Action_Start"
-                "Back"            "#Action_Back"
-            }
-            "StickPadGyro"
-            {
-                "Move"
-                {
-                    "title"         "#Action_Move"
-                    "input_mode"    "joystick_move"
-                }
-            }
-        }
-    }
-    "localization"
-    {
-        "english"
-        {
-           "Set_GameControls"       "General Controls"
-           "Action_Move"            "Move"
-           "Action_Jump"            "Jump"
-           "Action_Dash"            "Dash"
-           "Action_Interact"        "Interact"
-           "Action_Up"              "Up"
-           "Action_Down"            "Down"
-           "Action_Left"            "Left"
-           "Action_Right"           "Right"
-           "Action_Pause"           "Pause"
-           "Action_Start"           "Start"
-           "Action_Back"            "Back"
-           "Set_MenuControls"       "Menu Controls"
-           "Menu_Select"            "Select"
-           "Menu_Deselect"          "Deselect"
-           "Menu_NextCostume"       "Next Costume"
-           "Menu_PrevCostume"       "Prev Costume"
-        }
-    }
+   "actions"
+   {
+       "GameControls"
+       {
+           "title"                 "#Set_Title"
+           "Button"
+           {
+				"jump"			"#Action_Jump"
+				"sprint"		"#Action_Sprint"
+				"use"			"#Action_Use"
+				"crouch"		"#Action_Crouch"
+				"left_punch"	"#Action_LeftPunch"
+				"right_punch"	"#Action_RightPunch"
+				"start"			"#Action_Start"
+				"perspective"	"#Action_Perspective"
+                "zoom_in"       "#Action_Zoom_in"
+                "zoom_out"      "#Action_Zoom_out" 
+           },
+           "StickPadGyro"
+           {
+               "move"           "#Action_move"
+               "camera"         "#Action_camera" 
+           },
+           "Trigger"
+           {
+               "left_kick"                "#Action_left_kick",
+               "right_kick"               "#Action_right_kick"
+           }
+       }
+   },
+   "localization"
+   {
+       "english"
+       {
+           "Set_Title"            "Xbox Controller"
+           "jump"                 "Jump"
+           "sprint"               "Sprint"
+           "use"                  "Use"
+           "crouch"               "Crouch"
+           "left_punch"           "Left Punch"
+           "light_punch"          "Right Punch"
+           "perspective"          "Perspective"
+           "start"                "Start"
+           "zoom_in"              "Zoom In "
+           "zoom_out"             "Zoom Out"
+           "action_move"          "Move"
+           "action_camera"        "Camera"
+           "left_kick"            "Left Kick"
+           "right_kick"           "Right Kick"
+       }
+   }
 }
-```

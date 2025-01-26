@@ -9,13 +9,22 @@ extends Node
 # with true or false indicating if input is analog or digital.
 # False is digital (buttons), true is analog (joysticks, triggers, etc).
 var action_names := {
-	"Move": true,
-	"Up": false,
-	"Down": false,
-	"Left": false,
-	"Right": false,
-	"Jump": false,
-	"Pause": false,
+	# Digital (buttons)
+	"jump": false,
+	"sprint": false,
+	"use": false,
+	"crouch": false,
+	"left_punch": false,
+	"right_punch": false,
+	"start": false,
+	"perspective": false,
+	"zoom_in": false,
+	"zoom_out": false,
+	# Analog (joysticks, triggers, etc.)
+	"move": true,
+	"camera": true,
+	"left_kick": true,
+	"right_kick": true,
 }
 
 # Track if we've gotten the handles yet.
@@ -100,9 +109,9 @@ func get_move_input(device: int) -> Vector2:
 	if device >= 0:
 		if not got_handles: return Vector2.ZERO
 		# Get the analog stick movement
-		var action_data = Steam.getAnalogActionData(device, actions["Move"])
+		var action_data = Steam.getAnalogActionData(device, actions["move"])
 		return Vector2(action_data.x, -action_data.y).normalized()
-	return Vector2(Input.get_axis("Left", "Right"), Input.get_axis("Up", "Down")).normalized()
+	return Vector2(Input.get_axis("move_left", "move_right"), Input.get_axis("move_up", "move_down")).normalized()
 
 func get_action_state(device: int, action: String) -> Dictionary:
 	# Get the current action, but create the defaults along the way if they don't exist.
