@@ -11,12 +11,12 @@
 				"sprint"		"#Action_Sprint"
 				"use"			"#Action_Use"
 				"crouch"		"#Action_Crouch"
-				"left_punch"	"#Action_LeftPunch"
-				"right_punch"	"#Action_RightPunch"
+				"left_punch"		"#Action_LeftPunch"
+				"right_punch"		"#Action_RightPunch"
 				"start"			"#Action_Start"
-				"perspective"	"#Action_Perspective"
-                "zoom_in"       "#Action_Zoom_in"
-                "zoom_out"      "#Action_Zoom_out" 
+				"perspective"		"#Action_Perspective"
+				"zoom_in"       	"#Action_Zoom_in"
+				"zoom_out"      	"#Action_Zoom_out" 
            },
            "StickPadGyro"
            {
