@@ -1,0 +1,54 @@
+"In Game Actions"
+{
+   "actions"
+   {
+       "GameControls"
+       {
+           "title"                 "#Set_Title"
+           "Button"
+           {
+               "A"                 "#Action_A",
+               "B"                 "#Action_B",
+               "X"                 "#Action_X",
+               "Y"                 "#Action_Y",
+               "LB"                "#Action_LB",
+               "RB"                "#Action_RB",
+               "Back"              "#Action_Back",
+               "Start"             "#Action_Start",
+               "LS"                "#Action_LS",
+               "RS"                "#Action_RS"
+           },
+           "StickPadGyro"
+           {
+               "LeftStick"         "#Action_LeftStick",
+               "RightStick"        "#Action_RightStick" 
+           },
+           "Trigger"
+           {
+               "LT"                "#Action_LT",
+               "RT"                "#Action_RT"
+           }
+       }
+   },
+   "localization"
+   {
+       "english"
+       {
+           "Set_Title"            "Xbox Controller",
+           "Action_A"             "A Button",
+           "Action_B"             "B Button",
+           "Action_X"             "X Button",
+           "Action_Y"             "Y Button",
+           "Action_LB"            "Left Bumper",
+           "Action_RB"            "Right Bumper",
+           "Action_Back"          "Back",
+           "Action_Start"         "Start",
+           "Action_LS"            "Left Stick Click",
+           "Action_RS"            "Right Stick Click",
+           "Action_LeftStick"     "Left Stick",
+           "Action_RightStick"    "Right Stick",
+           "Action_LT"            "Left Trigger",
+           "Action_RT"            "Right Trigger"
+       }
+   }
+}
