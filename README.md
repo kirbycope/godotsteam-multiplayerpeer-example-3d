@@ -22,6 +22,7 @@ https://github.com/GodotSteam/MultiPlayerPeer/releases/latest
         - If you get a bunch of file/folder permission prompts
             - Move sure the project directory is not in "Desktop", "Documents", or "Downloads"
                 - `cd ~/GitHub` would be a good place
+    1. To enable Controller support, copy [game_actions_480.vdf](game_actions_480.vdf) to `~/Library/Application Support/Steam/controller_config`
 - Windows - win64-gXX-sXXX-gsXXX-mp.zip
     1. Extract contents to `C:\Godot\godotsteam` as seen in [.vscode/settings.json](.vscode/settings.json)
         - The exe and dll need to be together for the Steam fatures to work in the editor
