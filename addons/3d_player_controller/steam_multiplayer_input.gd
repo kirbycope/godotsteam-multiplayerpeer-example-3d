@@ -47,10 +47,13 @@ func init() -> void:
 	Steam.input_device_disconnected.connect(_on_steam_input_device_disconnected)
 
 func _on_steam_input_device_connected(input_handle: int) -> void:
+
 	if not got_handles:
 		get_handles()
-	Steam.activateActionSet(input_handle, current_action_set)
-	print("Device connected %s" % str(input_handle))
+
+	# Verify handles after getting them
+	if game_action_set != 0:
+		Steam.activateActionSet(input_handle, current_action_set)
 
 func _on_steam_input_device_disconnected(input_handle: int) -> void:
 	print("Device disconnected %s" % str(input_handle))
@@ -70,9 +73,9 @@ func get_action_handles(action_names: Dictionary) -> void:
 			actions[action] = Steam.getDigitalActionHandle(action)
 
 func get_controllers() -> Array[int]:
-	var controllers: Array[int] = [-1]
+	var controllers: Array[int] = [-1]  # Start with keyboard
 	var steam_controllers = Steam.getConnectedControllers()
-	if steam_controllers:
+	if steam_controllers != null and steam_controllers.size() > 0:
 		controllers.append_array(steam_controllers)
 	return controllers
 
@@ -168,26 +171,3 @@ func is_action_just_released(device: int, action: StringName, exact_match: bool 
 		return not currently_held and action_state.release_frame == current_frame
 	# If keyboard, use normal Godot input system.
 	return Input.is_action_just_released(action, exact_match)
-
-### CHECK ALL CONTROLLER ACTIONS
-
-func any_just_pressed(action: StringName) -> Dictionary:
-	if not got_handles: return {"result": false, "controller": null }
-	for controller in get_controllers():
-		if is_action_just_pressed(controller, action):
-			return {"result": true, "controller": controller}
-	return { "result": false, "controller": null }
-
-func any_just_released(action: StringName) -> Dictionary:
-	if not got_handles: return {"result": false, "controller": null }
-	for controller in get_controllers():
-		if is_action_just_released(controller, action):
-			return {"result": true, "controller": controller}
-	return { "result": false, "controller": null }
-	
-func any_pressed(action: StringName) -> Dictionary:
-	if not got_handles: return {"result": false, "controller": null }
-	for controller in get_controllers():
-		if is_action_pressed(controller, action):
-			return {"result": true, "controller": controller}
-	return { "result": false, "controller": null }
