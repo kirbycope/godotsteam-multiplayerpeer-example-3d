@@ -1,4 +1,4 @@
-![Thumbnail](/ci/thumbnail.png)
+![Screenshot](/godotsteam-multiplayerpeer-example-3d.png)
 
 # godotsteam-multiplayerpeer-example-3d
 An example for GodotSteam MultiplayerPeer.
