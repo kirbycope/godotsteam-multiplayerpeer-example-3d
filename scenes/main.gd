@@ -34,6 +34,9 @@ func _on_host_pressed() -> void:
 	# Spawn the new scene
 	spawner.spawn("res://scenes/level.tscn")
 
+	# Hide the background image
+	$CanvasLayer/Background.hide()
+	
 	# Hide the "Host" button
 	$CanvasLayer/Host.hide()
 
@@ -99,6 +102,9 @@ func join_lobby(id):
 
 	# Set the current Lobby ID
 	lobby_id = id
+
+	# Hide the background image
+	$CanvasLayer/Background.hide()
 
 	# Hide the "Host" button
 	$CanvasLayer/Host.hide()
