@@ -2,9 +2,11 @@ extends BaseState
 
 var node_name = "Swimming"
 
+@onready var swimming_sound = preload("res://addons/3d_player_controller/sounds/398037__swordofkings128__water-swimming-1_2.mp3") as AudioStream
 
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+
+## Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 
 	# Uncomment the next line if using GodotSteam
 	if !is_multiplayer_authority(): return
@@ -58,6 +60,11 @@ func play_animation() -> void:
 
 				# Play the "swimming" animation
 				player.animation_player.play(player.animation_swimming)
+
+				# Play the "swimming" sound effect
+				if not player.audio_player.playing or player.audio_player.stream != swimming_sound:
+					player.audio_player.stream = swimming_sound
+					player.audio_player.play()
 
 		# The player must not be moving
 		else:

@@ -34,8 +34,8 @@ func _input(event: InputEvent) -> void:
 			move_character(1)
 
 
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+## Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 
 	# Uncomment the next line if using GodotSteam
 	if !is_multiplayer_authority(): return

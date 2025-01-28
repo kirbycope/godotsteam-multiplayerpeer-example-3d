@@ -441,7 +441,7 @@ bones/13/rotation = Quaternion(2.08174e-14, 8.73147e-08, -2.38419e-07, 1)
 bones/13/scale = Vector3(1, 1, 1)
 
 [node name="Object001" type="BoneAttachment3D" parent="Skeleton3D"]
-transform = Transform3D(0.766044, 0.642787, -3.76801e-07, -0.642787, 0.766044, -5.56114e-07, -6.88167e-08, 6.68211e-07, 1, 0.130389, 0.880049, 2.17753e-07)
+transform = Transform3D(0.766044, 0.642788, -3.76802e-07, -0.642788, 0.766044, -5.56114e-07, -6.88165e-08, 6.68211e-07, 1, 0.130389, 0.88005, 2.17753e-07)
 bone_name = "Object001"
 bone_idx = 10
 
@@ -450,7 +450,7 @@ mesh = SubResource("ArrayMesh_8ujy4")
 skeleton = NodePath("")
 
 [node name="Rod02" type="BoneAttachment3D" parent="Skeleton3D"]
-transform = Transform3D(0.766044, 0.642788, -2.43027e-07, -0.642788, 0.766044, -6.68364e-07, -2.43446e-07, 6.68211e-07, 1, -0.170488, 0.808603, 4.17974e-05)
+transform = Transform3D(0.766044, 0.642788, -2.43028e-07, -0.642788, 0.766044, -6.68363e-07, -2.43446e-07, 6.68211e-07, 1, -0.170487, 0.808604, 4.17975e-05)
 bone_name = "Rod02"
 bone_idx = 11
 
@@ -459,7 +459,7 @@ mesh = SubResource("ArrayMesh_pavd6")
 skeleton = NodePath("")
 
 [node name="Object002" type="BoneAttachment3D" parent="Skeleton3D"]
-transform = Transform3D(-2.43027e-07, 0.642788, -0.766044, -6.68364e-07, 0.766044, 0.642788, 1, 6.68211e-07, 2.43446e-07, -0.219813, 0.846498, 1.92493e-07)
+transform = Transform3D(-2.43028e-07, 0.642788, -0.766044, -6.68363e-07, 0.766044, 0.642788, 1, 6.68211e-07, 2.43446e-07, -0.219813, 0.846499, 1.92493e-07)
 bone_name = "Object002"
 bone_idx = 12
 
@@ -468,7 +468,7 @@ mesh = SubResource("ArrayMesh_kyi4g")
 skeleton = NodePath("")
 
 [node name="rod03" type="BoneAttachment3D" parent="Skeleton3D"]
-transform = Transform3D(0.766044, 0.642788, -2.43027e-07, -0.642788, 0.766044, -6.68364e-07, -2.43446e-07, 6.68211e-07, 1, 0.054727, 0.610946, 0.168323)
+transform = Transform3D(0.766044, 0.642788, -2.43028e-07, -0.642788, 0.766044, -6.68363e-07, -2.43446e-07, 6.68211e-07, 1, 0.0547271, 0.610946, 0.168323)
 bone_name = "rod03"
 bone_idx = 13
 

@@ -10,20 +10,20 @@ func _input(event: InputEvent) -> void:
 	if !player.game_paused:
 
 		# [jump] button just _pressed_
-		if Input.is_action_just_pressed("jump") and player.enable_jumping:
+		if event.is_action_pressed("jump") and player.enable_jumping:
 
 			# ToDo: Mantle up
 			pass
 
 		# [sprint] button just _pressed_
-		if Input.is_action_just_pressed("sprint"):
+		if event.is_action_pressed("sprint"):
 
 			# ToDo: Drop down
 			pass
 
 
-## Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+## Called every frame. '_delta' is the elapsed time since the previous frame.
+func _process(_delta: float) -> void:
 
 	# Uncomment the next line if using GodotSteam
 	if !is_multiplayer_authority(): return
