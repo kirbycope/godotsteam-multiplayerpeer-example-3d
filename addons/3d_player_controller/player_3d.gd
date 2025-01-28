@@ -214,17 +214,51 @@ func _input(event) -> void:
 				# Set the visual's rotation
 				visuals.rotation = Vector3.ZERO
 
-	# [chat] button _released_
-	if event.is_action_released("dpad_right") and enable_chat:
+	# [cancel] button _pressed_
+	if event.is_action_pressed("ui_cancel"):
 
 		# Check if the game is not paused
 		if !game_paused:
 
-			# Show the mouse
-			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+			# Hide the chat input
+			$"../../Tuscany/ChatWindow/VBoxContainer/InputContainer".hide()
 
-			# Set the "paused" flag
-			game_paused = true
+	# [chat] button _released_
+	if enable_chat:
+
+	# Check if it's a keyboard event first
+		if event is InputEventKey:
+
+			# Check if it's the [T] being _released_
+			if event.keycode == KEY_T and event.is_released():
+
+				# Check if the game is not paused
+				if !game_paused:
+
+					# Show the mouse
+					Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+					# Set the "paused" flag
+					game_paused = true
+
+					# Show the chat input
+					$"../../Tuscany/ChatWindow/VBoxContainer/InputContainer".show()
+					$"../../Tuscany/ChatWindow/VBoxContainer/InputContainer/MessageInput".grab_focus()
+
+## Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	camera.current = is_multiplayer_authority()
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	# Make sure the game is unpaused
+	game_paused = false
+	# Put the player in first-person perspective
+	perspective = 1
+	# Set camera's position
+	camera.position = Vector3(0.0, 0.0, 0.0)
+	# Set the camera's raycast position to match the camera's position
+	raycast_lookat.position = Vector3.ZERO
+	# Align visuals with the camera
+	visuals.rotation = Vector3(0.0, 0.0, camera_mount.rotation.z)
 
 
 ## Called each physics frame with the time since the last physics frame as argument (delta, in seconds).
