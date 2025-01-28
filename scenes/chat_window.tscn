@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bejjtqjekdl2w"]
+[gd_scene load_steps=3 format=3 uid="uid://bejjtqjekdl2w"]
 
 [ext_resource type="Script" path="res://scenes/chat_window.gd" id="1_8h26g"]
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ybqub"]
 
 [node name="ChatWindow" type="Control"]
 layout_mode = 3
@@ -47,6 +49,9 @@ placeholder_text = "Type your message..."
 [node name="SendButton" type="Button" parent="VBoxContainer/InputContainer"]
 layout_mode = 2
 text = "Send"
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="."]
+replication_config = SubResource("SceneReplicationConfig_ybqub")
 
 [connection signal="text_submitted" from="VBoxContainer/InputContainer/MessageInput" to="." method="_on_message_input_text_submitted"]
 [connection signal="pressed" from="VBoxContainer/InputContainer/SendButton" to="." method="_on_send_button_pressed"]
