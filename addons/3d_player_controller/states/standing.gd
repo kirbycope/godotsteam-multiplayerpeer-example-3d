@@ -260,6 +260,15 @@ func play_animation() -> void:
 					# Play the "standing, holding reeling rod" animation
 					player.animation_player.play(player.animation_standing_reeling_fishing_rod)
 
+				# Get the held fishing rod's animation player
+				var fishing_rod = player.held_item_mount.get_node("FishingRod/AnimationPlayer")
+
+				# Check if the animation player is not already playing the appropriate animation
+				if fishing_rod.current_animation != "Take 001":
+
+					# Play the "reeling" animation
+					fishing_rod.current_animation = "Take 001"
+
 			# The player must be "idle"
 			else:
 
