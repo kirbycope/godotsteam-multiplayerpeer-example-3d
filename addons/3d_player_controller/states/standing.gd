@@ -190,12 +190,6 @@ func _process(_delta: float) -> void:
 	# Uncomment the next line if using GodotSteam
 	if !is_multiplayer_authority(): return
 
-	# Check if the player is swimming
-	if player.is_swimming:
-
-		# Start "swimming"
-		transition(node_name, "Swimming")
-
 	# [crouch] button _pressed_, crouching is enabled, and not already "crouching"
 	if Input.is_action_pressed("crouch") and player.enable_crouching and !player.is_crouching:
 
