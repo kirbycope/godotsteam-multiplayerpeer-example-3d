@@ -205,6 +205,7 @@ func _input(event) -> void:
 					$"../../Tuscany/ChatWindow/VBoxContainer/InputContainer".show()
 					$"../../Tuscany/ChatWindow/VBoxContainer/InputContainer/MessageInput".grab_focus()
 
+
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	camera.current = is_multiplayer_authority()

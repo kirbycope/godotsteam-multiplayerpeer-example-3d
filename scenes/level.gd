@@ -1,4 +1,3 @@
-# level.gd
 extends Node3D
 
 const LOADING = preload("res://scenes/loading.tscn")
@@ -6,7 +5,7 @@ const RACETRACK = "res://scenes/race_track.tscn"
 const TUSCANY = "res://scenes/tuscany.tscn"
 
 var loading_instance: Node3D
-var scene_to_load = RACETRACK
+var scene_to_load = TUSCANY
 
 ## Called when the node enters the scene tree for the first time.
 func _ready() -> void:
