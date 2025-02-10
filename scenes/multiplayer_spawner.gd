@@ -33,11 +33,6 @@ func spawn_player(data):
 	# Set the node's multiplayer authority to the given peer
 	player.set_multiplayer_authority(data)
 
-	# Set player's initial transform
-	player.position = Vector3(-30.25, 5.8, 47.5)
-	player.rotation = Vector3(0.0, 45.0, 0.0)
-	player.velocity = Vector3.ZERO
-
 	# Store the player data
 	players[data] = player
 

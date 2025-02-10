@@ -31,9 +31,6 @@ func _on_host_pressed() -> void:
 	# Set the current peer to handle the RPC system
 	multiplayer.multiplayer_peer = peer
 
-	# Spawn the new scene
-	spawner.spawn("res://scenes/level.tscn")
-
 	# Hide the background image
 	$CanvasLayer/Background.hide()
 	
@@ -45,6 +42,9 @@ func _on_host_pressed() -> void:
 
 	# Hide the "Lobbies" list
 	$CanvasLayer/LobbyContainer/Lobbies.hide()
+
+	# Defer loading the level to the next frame
+	call_deferred("spawn_level_deferred")
 
 
 ## Called when a lobby has been created.
@@ -91,6 +91,22 @@ func _on_lobby_match_list(lobbies):
 		$CanvasLayer/LobbyContainer/Lobbies.add_child(button)
 
 
+## Called when the "Refresh" button is pressed.
+func _on_refresh_pressed() -> void:
+
+	# Check if there is already data
+	if $CanvasLayer/LobbyContainer/Lobbies.get_child_count() > 0:
+
+		# For each item found...
+		for node in $CanvasLayer/LobbyContainer/Lobbies.get_children():
+
+			# Remove the item
+			node.queue_free()
+
+	# Retrieve a new list
+	open_lobby_list()
+
+
 ## Called when a player wants to join a lobby.
 func join_lobby(id):
 
@@ -133,17 +149,8 @@ func spawn_level(data):
 	return (load(data) as PackedScene).instantiate()
 
 
-## Called when the "Refresh" button is pressed.
-func _on_refresh_pressed() -> void:
+## Called when the level is ready to be spawned.
+func spawn_level_deferred() -> void:
 
-	# Check if there is already data
-	if $CanvasLayer/LobbyContainer/Lobbies.get_child_count() > 0:
-
-		# For each item found...
-		for node in $CanvasLayer/LobbyContainer/Lobbies.get_children():
-
-			# Remove the item
-			node.queue_free()
-
-	# Retrieve a new list
-	open_lobby_list()
+	# Spawn the new scene
+	spawner.spawn("res://scenes/level.tscn")

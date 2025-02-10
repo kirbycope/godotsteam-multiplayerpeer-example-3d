@@ -1,0 +1,34 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuiltk85ciyiq"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pj4su"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pe1xj"]
+material = SubResource("StandardMaterial3D_pj4su")
+flip_faces = true
+size = Vector3(5, 5, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6iqrb"]
+albedo_color = Color(0, 0, 0, 1)
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_0qcjb"]
+material = SubResource("StandardMaterial3D_6iqrb")
+size = Vector2(5, 5)
+
+[node name="Loading" type="Node3D"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, 0)
+mesh = SubResource("BoxMesh_pe1xj")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.001, 0)
+use_collision = true
+mesh = SubResource("PlaneMesh_0qcjb")
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1, -2.4)
+text = "LOADING..."
+
+[node name="OmniLight3D" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.38624, 0)

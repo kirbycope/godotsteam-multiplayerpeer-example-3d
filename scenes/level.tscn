@@ -1,50 +1,11 @@
-[gd_scene load_steps=10 format=3 uid="uid://dhaw7asvefql"]
+[gd_scene load_steps=4 format=3 uid="uid://dhaw7asvefql"]
 
-[ext_resource type="PackedScene" uid="uid://bnj6yipdd5qyq" path="res://scenes/tuscany.tscn" id="2_4coch"]
+[ext_resource type="Script" path="res://scenes/level.gd" id="1_04v40"]
 [ext_resource type="PackedScene" uid="uid://bpxtl78t5efs3" path="res://scenes/player.tscn" id="3_bmsn3"]
-[ext_resource type="Texture2D" uid="uid://cjhj7i7a541b2" path="res://assets/gap/Flare00.PNG" id="4_jrm37"]
-[ext_resource type="Script" path="res://scenes/gpu_particles_3d.gd" id="5_kfx2m"]
-[ext_resource type="AudioStream" uid="uid://cybembj4eya4u" path="res://assets/freesound/383394__emanuelecaro__sunset-woods-frossasco-italy.mp3" id="6_audo2"]
 [ext_resource type="Script" path="res://scenes/multiplayer_spawner.gd" id="8_tlbac"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_brr0j"]
-transparency = 1
-albedo_color = Color(0.951902, 0.942838, 0.419933, 1)
-albedo_texture = ExtResource("4_jrm37")
-billboard_mode = 3
-particles_anim_h_frames = 1
-particles_anim_v_frames = 1
-particles_anim_loop = false
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_u4dxy"]
-emission_shape_scale = Vector3(30, 10, 30)
-emission_shape = 1
-emission_sphere_radius = 1.0
-gravity = Vector3(1, 1, 1)
-scale_min = 0.01
-scale_max = 0.12
-
-[sub_resource type="QuadMesh" id="QuadMesh_l0a6u"]
-
 [node name="Level" type="Node3D"]
-
-[node name="Tuscany" parent="." instance=ExtResource("2_4coch")]
-
-[node name="GPUParticles3D" type="GPUParticles3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -35.4404, 10.9845, 35.2042)
-material_override = SubResource("StandardMaterial3D_brr0j")
-amount = 1
-amount_ratio = 0.2
-lifetime = 2.0
-visibility_aabb = AABB(-15, -5, -15, 30, 10, 30)
-process_material = SubResource("ParticleProcessMaterial_u4dxy")
-draw_pass_1 = SubResource("QuadMesh_l0a6u")
-script = ExtResource("5_kfx2m")
-
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_audo2")
-volume_db = -35.0
-autoplay = true
+script = ExtResource("1_04v40")
 
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="."]
 spawn_path = NodePath(".")
