@@ -14,13 +14,27 @@ func _ready() -> void:
 	area_node.body_exited.connect(_on_area_3d_body_exited)
 
 
+## Called when a Node3D enters the Area3D.
 func _on_area_3d_body_entered(body: Node3D, area_node: Node3D) -> void:
+
+	# Check if the collision body is a character
 	if body is CharacterBody3D:
-		body.is_swimming = true
-		body.swimming_in = area_node
+
+		# Store which body the player is swimming in
+		body.is_swimming_in = area_node
+
+		# Get the string name of the player's current state
+		var current_state = body.base_state.get_state_name(body.current_state)
+
+		# Start "swimming"
+		body.base_state.transition(current_state, "Swimming")
 
 
+## Called when a Node3D exits the Area3D.
 func _on_area_3d_body_exited(body: Node3D) -> void:
+
+	# Check if the collision body is a character
 	if body is CharacterBody3D:
-		body.is_swimming = false
-		body.swimming_in = null
+
+		# Stop "swimming"
+		body.base_state.transition("Swimming", "Standing")
