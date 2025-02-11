@@ -16,8 +16,9 @@ func _ready() -> void:
 
 ## Called when a Node3D enters the Area3D.
 func _on_area_3d_body_entered(body: Node3D, area_node: Node3D) -> void:
-	if body is CharacterBody3D:
-		#$Skateboard.queue_free()
+
+	# Check if the body is a Player
+	if body.is_in_group("Player"):
 
 		# Load the scene
 		var scene = load("res://scenes/skateboard.tscn")
@@ -37,5 +38,7 @@ func _on_area_3d_body_entered(body: Node3D, area_node: Node3D) -> void:
 
 ## Called when a Node3D exits the Area3D.
 func _on_area_3d_body_exited(body: Node3D) -> void:
-	if body is CharacterBody3D:
+
+	# Check if the body is a Player
+	if body.is_in_group("Player"):
 		pass
