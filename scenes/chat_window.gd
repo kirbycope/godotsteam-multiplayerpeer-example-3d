@@ -4,9 +4,30 @@ const MESSAGE_SCENE : PackedScene = preload("res://scenes/message.tscn")
 var should_show_messages: bool = false
 
 @onready var chat_display = $VBoxContainer/ChatDisplay/MessageContainer
+@onready var input_container = $VBoxContainer/InputContainer
 @onready var input_field = $VBoxContainer/InputContainer/MessageInput
 @onready var scroll_container = $VBoxContainer/ChatDisplay
 @onready var send_button = $VBoxContainer/InputContainer/SendButton
+
+
+## Called when there is an input event.
+func _input(event: InputEvent) -> void:
+
+	# [chat] button _released_
+	if event.is_action_pressed("dpad_right") and Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
+
+		# Show the mouse
+		Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+
+		# Show the chat input
+		input_container.show()
+		input_field.grab_focus()
+
+	# [cancel] button _pressed_
+	if event.is_action_pressed("ui_cancel"):
+
+			# Hide the chat input
+			input_container.hide()
 
 
 func _ready() -> void:
