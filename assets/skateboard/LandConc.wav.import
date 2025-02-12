@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://cdu4sgeprhanp"
-path="res://.godot/imported/PATHREVS.WAV-f42a83f462bd827cc734416698020e87.sample"
+uid="uid://b73mcxrvddoqk"
+path="res://.godot/imported/LandConc.wav-afdfcc46ad4bc7b3c2e5b99317504e5e.sample"
 
 [deps]
 
-source_file="res://assets/sounds/PATHREVS.WAV"
-dest_files=["res://.godot/imported/PATHREVS.WAV-f42a83f462bd827cc734416698020e87.sample"]
+source_file="res://assets/skateboard/LandConc.wav"
+dest_files=["res://.godot/imported/LandConc.wav-afdfcc46ad4bc7b3c2e5b99317504e5e.sample"]
 
 [params]
 

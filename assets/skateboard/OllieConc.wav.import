@@ -3,12 +3,12 @@
 importer="wav"
 type="AudioStreamWAV"
 uid="uid://dq6vhjkvgpyvs"
-path="res://.godot/imported/OllieConc.wav-2641d3c486cc76396146f5aaf1cf12fb.sample"
+path="res://.godot/imported/OllieConc.wav-84a0aeafd8b29f0a756fadd58e61204b.sample"
 
 [deps]
 
-source_file="res://assets/sounds/OllieConc.wav"
-dest_files=["res://.godot/imported/OllieConc.wav-2641d3c486cc76396146f5aaf1cf12fb.sample"]
+source_file="res://assets/skateboard/OllieConc.wav"
+dest_files=["res://.godot/imported/OllieConc.wav-84a0aeafd8b29f0a756fadd58e61204b.sample"]
 
 [params]
 

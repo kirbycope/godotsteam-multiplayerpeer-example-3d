@@ -2,13 +2,13 @@
 
 importer="wav"
 type="AudioStreamWAV"
-uid="uid://clr7nwwf738k1"
-path="res://.godot/imported/PATHACC.WAV-bcea15da8cde50e7a12af2230ee94cfe.sample"
+uid="uid://6mvjcsjvvp0j"
+path="res://.godot/imported/Honk_1.wav-1f335f064dacb3bf4b47750d24547963.sample"
 
 [deps]
 
-source_file="res://assets/sounds/PATHACC.WAV"
-dest_files=["res://.godot/imported/PATHACC.WAV-bcea15da8cde50e7a12af2230ee94cfe.sample"]
+source_file="res://assets/honda_crv/Honk_1.wav"
+dest_files=["res://.godot/imported/Honk_1.wav-1f335f064dacb3bf4b47750d24547963.sample"]
 
 [params]
 
