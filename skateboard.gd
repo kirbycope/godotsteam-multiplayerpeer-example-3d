@@ -1,4 +1,4 @@
-extends VehicleBody3D
+extends Node3D
 
 var engine_power
 var player: CharacterBody3D
