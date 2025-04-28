@@ -79,6 +79,12 @@ func _input(event: InputEvent) -> void:
 		# [touch] screen just _pressed_
 		if event.is_pressed():
 
+			# Check if the touch is on any button first
+			if is_touch_on_button(event.position):
+
+				# Skip processing this touch event for the virtual controller
+				return
+
 			# Check if the touch event took place on the left-half of the screen and the event has not been recorded
 			if event.position.x < get_viewport().get_visible_rect().size.x / 2 and !left_swipe_event_index:
 
@@ -200,24 +206,63 @@ func _input(event: InputEvent) -> void:
 			right_swipe_delta = right_swipe_current_position - right_swipe_initial_position
 
 			# Trigger the [look_left] action _pressed_
-			if right_swipe_delta.x < - SWIPE_DEADZONE*2:
+			if right_swipe_delta.x < -SWIPE_DEADZONE:
 				Input.action_release("look_right")
 				Input.action_press("look_left")
-
 			# Trigger the [look_right] action _pressed_
-			if right_swipe_delta.x > SWIPE_DEADZONE*2:
+			elif right_swipe_delta.x > SWIPE_DEADZONE:
 				Input.action_release("look_left")
 				Input.action_press("look_right")
+			# Trigger the [look_left] and [look_right] actions _released_
+			else:
+				Input.action_release("look_left")
+				Input.action_release("look_right")
 
 			# Trigger the [look_up] action _pressed_
-			if right_swipe_delta.y < SWIPE_DEADZONE*2:
+			if right_swipe_delta.y < -SWIPE_DEADZONE*2:
 				Input.action_release("look_down")
 				Input.action_press("look_up")
-
 			# Trigger the [look_down] action _pressed_
-			if right_swipe_delta.y > SWIPE_DEADZONE*2:
+			elif right_swipe_delta.y > SWIPE_DEADZONE*2:
 				Input.action_release("look_up")
 				Input.action_press("look_down")
+			# Trigger the [look_up] and [look_down] actions _released_
+			else:
+				Input.action_release("look_up")
+				Input.action_release("look_down")
 
 	# Redraw canvas items via `_draw()`
 	queue_redraw()
+
+
+## Checks if a given position is within any TouchScreenButton
+func is_touch_on_button(position: Vector2) -> bool:
+
+	# Get all TouchScreenButton nodes in the scene
+	var touch_buttons = get_tree().get_nodes_in_group("TouchScreenButton")
+
+	# Iterate through each button
+	for button in touch_buttons:
+
+		# Skip if button is not visible
+		if !button.visible:
+			continue
+
+		# Get the button's texture and check if the position is within its area
+		var texture = button.texture_normal
+
+		# Check if the button has a texture
+		if texture:
+
+			# Get the size of the texture
+			var size = texture.get_size()
+
+			# Calculate the rectangle area of the button
+			var rect = Rect2(button.global_position, size)
+
+			# Check if the position is within the button's rectangle
+			if rect.has_point(position):
+				return true
+
+	# If no button was found at the position, return false
+	return false

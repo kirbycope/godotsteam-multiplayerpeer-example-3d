@@ -1,15 +1,15 @@
 extends BaseState
 
-const animation_crouching = "Crouching_Idle"
-const animation_crouching_aiming_rifle = "Rifle_Aiming_Idle_Crouching"
-const animation_crouching_firing_rifle = "Rifle_Firing_Crouching"
-const animation_crouching_holding_rifle = "Rifle_Idle_Crouching"
-const animation_crouching_move = "Sneaking_In_Place"
-const animation_crouching_move_holding_rifle = "Rifle_Walk_Crouching"
-const animation_crouching_holding_tool = "Tool_Idle_Crouching"
-const animation_punching_low_left = "Punching_Low_Left"
-const animation_punching_low_right = "Punching_Low_Right"
-var node_name = "Crouching"
+const ANIMATION_CROUCHING := "Crouching_Idle" + "/mixamo_com"
+const ANIMATION_CROUCHING_AIMING_RIFLE := "Rifle_Aiming_Idle_Crouching" + "/mixamo_com"
+const ANIMATION_CROUCHING_FIRING_RIFLE := "Rifle_Firing_Crouching" + "/mixamo_com"
+const ANIMATION_CROUCHING_HOLDING_RIFLE := "Rifle_Idle_Crouching" + "/mixamo_com"
+const ANIMATION_CROUCHING_MOVE := "Sneaking_In_Place" + "/mixamo_com"
+const ANIMATION_CROUCHING_MOVE_HOLDING_RIFLE := "Rifle_Walk_Crouching" + "/mixamo_com"
+const ANIMATION_CROUCING_HOLDING_TOOL := "Tool_Idle_Crouching" + "/mixamo_com"
+const ANIMTION_PUNCHING_LOW_LEFT := "Punching_Low_Left" + "/mixamo_com"
+const ANIMATION_PUNCHING_LOW_RIGHT := "Punching_Low_Right" + "/mixamo_com"
+const NODE_NAME := "Crouching"
 
 
 ## Called when there is an input event.
@@ -22,10 +22,10 @@ func _input(event: InputEvent) -> void:
 		if event.is_action_pressed("jump") and player.enable_jumping:
 
 			# Start "jumping"
-			transition(node_name, "Jumping")
+			transition(NODE_NAME, "Jumping")
 
-		# [left-punch] button just _pressed_
-		if event.is_action_pressed("left_punch"):
+		# [aim] button just _pressed_
+		if event.is_action_pressed("aim"):
 
 			# Check if the animation player is not locked
 			if !player.is_animation_locked:
@@ -36,8 +36,26 @@ func _input(event: InputEvent) -> void:
 					# Flag the player as is "aiming"
 					player.is_aiming = true
 
-				# The player must be unarmed
-				else:
+		# [aim] button just _released_
+		if event.is_action_released("aim"):
+
+			# Check if the animation player is not locked
+			if !player.is_animation_locked:
+
+				# Check if the player is "holding a rifle"
+				if player.is_holding_rifle:
+
+					# Flag the player as not "aiming"
+					player.is_aiming = false
+
+		# [left-punch] button just _pressed_
+		if event.is_action_pressed("left_punch"):
+
+			# Check if the animation player is not locked
+			if !player.is_animation_locked:
+
+				# Check if the player is not "holding a rifle"
+				if !player.is_holding_rifle:
 
 					# Check if punching is enabled
 					if player.enable_punching:
@@ -49,10 +67,10 @@ func _input(event: InputEvent) -> void:
 						player.is_punching_left = true
 
 						# Check if the animation player is not already playing the appropriate animation
-						if player.animation_player.current_animation != animation_punching_low_left:
+						if player.animation_player.current_animation != ANIMTION_PUNCHING_LOW_LEFT:
 
 							# Play the "punching low, left" animation
-							player.animation_player.play(animation_punching_low_left)
+							player.animation_player.play(ANIMTION_PUNCHING_LOW_LEFT)
 
 							# Check the punch hits something
 							player.check_punch_collision()
@@ -85,16 +103,16 @@ func _input(event: InputEvent) -> void:
 						player.is_punching_right = true
 
 						# Check if the animation player is not already playing the appropriate animation
-						if player.animation_player.current_animation != animation_punching_low_right:
+						if player.animation_player.current_animation != ANIMATION_PUNCHING_LOW_RIGHT:
 
 							# Play the "punching low, right" animation
-							player.animation_player.play(animation_punching_low_right)
+							player.animation_player.play(ANIMATION_PUNCHING_LOW_RIGHT)
 
 							# Check the punch hits something
 							player.check_punch_collision()
 
-		# [right-punch] button just _pressed_
-		if event.is_action_pressed("right_punch"):
+		# [shoot] button just _pressed_
+		if event.is_action_pressed("shoot"):
 
 			# Check if the animation player is not locked
 			if !player.is_animation_locked:
@@ -122,7 +140,7 @@ func _process(_delta: float) -> void:
 	if player.velocity != Vector3.ZERO or player.virtual_velocity != Vector3.ZERO:
 	
 		# Start "crawling"
-		transition(node_name, "Crawling")
+		transition(NODE_NAME, "Crawling")
 
 	# [crouch] button not _pressed_
 	if !Input.is_action_pressed("crouch"):
@@ -131,7 +149,7 @@ func _process(_delta: float) -> void:
 		if !player.is_animation_locked:
 
 			# Stop "crouching"
-			transition(node_name, "Standing")
+			transition(NODE_NAME, "Standing")
 
 	# Check if the player is "crouching"
 	if player.is_crouching:
@@ -153,46 +171,46 @@ func play_animation() -> void:
 			if player.is_firing:
 
 				# Check if the animation player is not already playing the appropriate animation
-				if player.animation_player.current_animation != animation_crouching_firing_rifle:
+				if player.animation_player.current_animation != ANIMATION_CROUCHING_FIRING_RIFLE:
 
 					# Play the "crouching, firing rifle" animation
-					player.animation_player.play(animation_crouching_firing_rifle)
+					player.animation_player.play(ANIMATION_CROUCHING_FIRING_RIFLE)
 
 			# Check if the player is "aiming"
 			elif player.is_aiming:
 
 				# Check if the animation player is not already playing the appropriate animation
-				if player.animation_player.current_animation != animation_crouching_aiming_rifle:
+				if player.animation_player.current_animation != ANIMATION_CROUCHING_AIMING_RIFLE:
 
 					# Play the "crouching, aiming a rifle" animation
-					player.animation_player.play(animation_crouching_aiming_rifle)
+					player.animation_player.play(ANIMATION_CROUCHING_AIMING_RIFLE)
 
 			# The player must be "idle"
 			else:
 
 				# Check if the animation player is not already playing the appropriate animation
-				if player.animation_player.current_animation != animation_crouching_holding_rifle:
+				if player.animation_player.current_animation != ANIMATION_CROUCHING_HOLDING_RIFLE:
 
 					# Play the "crouching idle, holding rifle" animation
-					player.animation_player.play(animation_crouching_holding_rifle)
+					player.animation_player.play(ANIMATION_CROUCHING_HOLDING_RIFLE)
 
 		# Check if the player is "holding a tool"
 		elif player.is_holding_tool:
 
 			# Check if the animation player is not already playing the appropriate animation
-			if player.animation_player.current_animation != animation_crouching_holding_tool:
+			if player.animation_player.current_animation != ANIMATION_CROUCING_HOLDING_TOOL:
 
 				# Play the "crouching, holding tool" animation
-				player.animation_player.play(animation_crouching_holding_tool)
+				player.animation_player.play(ANIMATION_CROUCING_HOLDING_TOOL)
 
 		# The player must be unarmed
 		else:
 
 			# Check if the animation player is not already playing the appropriate animation
-			if player.animation_player.current_animation != animation_crouching:
+			if player.animation_player.current_animation != ANIMATION_CROUCHING:
 
 				# Play the "crouching" animation
-				player.animation_player.play(animation_crouching)
+				player.animation_player.play(ANIMATION_CROUCHING)
 
 
 ## Start "crouching".

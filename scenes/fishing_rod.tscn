@@ -338,7 +338,7 @@ _data = {
 }
 
 [node name="FishingRod" type="Node3D"]
-transform = Transform3D(-0.2, 0, 0, 0, -0.2, 0, 0, 0, -0.2, 0, 0, 0)
+transform = Transform3D(0.141421, 0.141421, 0, -0.141421, 0.141421, 0, 0, 0, 0.2, -0.2, 0, 0)
 
 [node name="Skeleton3D" type="Skeleton3D" parent="."]
 bones/0/name = "Bone001"
@@ -486,5 +486,5 @@ skin = SubResource("Skin_tducd")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
-"": SubResource("AnimationLibrary_kg017")
+&"": SubResource("AnimationLibrary_kg017")
 }
