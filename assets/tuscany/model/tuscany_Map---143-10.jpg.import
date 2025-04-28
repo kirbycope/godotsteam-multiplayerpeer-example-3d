@@ -2,15 +2,12 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dtfhossbc258k"
+uid="uid://b7uj2td05re1g"
 path.s3tc="res://.godot/imported/tuscany_Map---143-10.jpg-94e6cabb0f1f417dd6761ee0599a3199.s3tc.ctex"
 path.etc2="res://.godot/imported/tuscany_Map---143-10.jpg-94e6cabb0f1f417dd6761ee0599a3199.etc2.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
-}
-generator_parameters={
-"md5": "1f0ce58d053d2a729298c559c738985c"
 }
 
 [deps]

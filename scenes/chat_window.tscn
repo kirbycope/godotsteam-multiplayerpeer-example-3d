@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bejjtqjekdl2w"]
 
-[ext_resource type="Script" path="res://scenes/chat_window.gd" id="1_8h26g"]
+[ext_resource type="Script" uid="uid://bll3qp2ir1lln" path="res://scenes/chat_window.gd" id="1_8h26g"]
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_ybqub"]
 

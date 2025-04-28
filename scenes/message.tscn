@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://riqfmggkqpfd"]
 
-[ext_resource type="Script" path="res://scenes/message.gd" id="1_xxxxx"]
+[ext_resource type="Script" uid="uid://cwaawybhc3vux" path="res://scenes/message.gd" id="1_xxxxx"]
 
 [node name="Message" type="PanelContainer"]
 offset_right = 40.0

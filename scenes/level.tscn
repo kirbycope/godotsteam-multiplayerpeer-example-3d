@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://dhaw7asvefql"]
 
-[ext_resource type="Script" path="res://scenes/level.gd" id="1_04v40"]
+[ext_resource type="Script" uid="uid://n62q45jl684v" path="res://scenes/level.gd" id="1_04v40"]
 [ext_resource type="PackedScene" uid="uid://bpxtl78t5efs3" path="res://scenes/player.tscn" id="3_bmsn3"]
-[ext_resource type="Script" path="res://scenes/multiplayer_spawner.gd" id="8_tlbac"]
+[ext_resource type="Script" uid="uid://dvtx6l3nvy41j" path="res://scenes/multiplayer_spawner.gd" id="8_tlbac"]
 
 [node name="Level" type="Node3D"]
 script = ExtResource("1_04v40")
